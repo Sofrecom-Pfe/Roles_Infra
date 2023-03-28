@@ -1,0 +1,35 @@
+---
+# tasks file for git-push
+
+- name: Copy the file to the Github repository
+  copy:
+    src: "{{ local_file_path }}"
+    dest: "{{ destination_path }}/{{ local_file_path | basename }}"
+
+- name: Add the file to the Github repository
+  shell: |
+    cd {{ destination_path }} 
+    git pull
+    git add "{{ local_file_path | basename }}"
+  become_user: "root"
+  become_method: sudo
+  when: github_repo is defined
+
+- name: Commit the changes to the Github repository
+  shell: |
+    cd {{ destination_path }} 
+    git commit -m 'Adding file to reports directory'
+  become_user: "root"
+  become_method: sudo
+  when: github_repo is defined   
+
+- name: Push the changes to the Github repository
+  shell: |
+    cd {{ destination_path }} 
+    git config user.name "{{ git_username }}"
+    git config user.email "{{ git_email }}"
+    git push -u origin main -f -o ci.token={{ github_pat }}
+  become_user: "root"
+  become_method: sudo
+  when: github_repo is defined
+

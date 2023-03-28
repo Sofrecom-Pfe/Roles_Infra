@@ -1,0 +1,14 @@
+# Playbook to call multiple roles to configure systems
+- name: main_playbook
+  hosts: workers 
+  become: yes
+  vars_files:
+    - ansible-vault/email_pass.yml
+
+  roles:
+    #- role: prerequis
+    #- role: telnet-test
+    #- role: reports
+    #- role: fetch
+    #- role: git-push
+

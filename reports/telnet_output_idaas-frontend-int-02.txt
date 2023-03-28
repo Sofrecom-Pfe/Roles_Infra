@@ -1,0 +1,4 @@
+Facts for idaas-frontend-int-02:
+          Telnet connection status for 10.0.0.2: Telnet output for 10.0.0.2: telnet> usage: open [-l user] [-a] host-name [port]
+telnet> ?Invalid command
+telnet>    

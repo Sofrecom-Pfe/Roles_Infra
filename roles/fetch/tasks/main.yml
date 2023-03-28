@@ -1,0 +1,10 @@
+---
+# tasks file for fetch
+- name: Fetch report from remote machine
+  fetch:
+    src: "{{ worker_file_path }}"
+    dest: "{{ file_restore_path }}" 
+    flat: yes
+    fail_on_missing: yes
+
+

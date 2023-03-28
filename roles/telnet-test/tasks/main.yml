@@ -1,0 +1,33 @@
+---
+# tasks file for telnet-test
+
+- name: Copy JSON file
+  copy:
+    src: "{{ src_path }}"
+    dest: "{{ dest_worker_path }}"
+
+- name: Get JSON file
+  slurp:
+    src: "{{ dest_worker_path }}" 
+  register: json_file
+
+- name: Parse JSON file
+  set_fact:
+    test_cases: "{{ json_file.content | b64decode | from_json }}"
+
+- name: Print variables
+  debug:
+    var: hostvars[item]['ansible_host']
+  loop: "{{ groups['workers'] }}"
+  when: hostvars[item]['ansible_host'] == ansible_host
+
+- name: Execute Telnet command to destination IP and port
+  shell: |
+    output=$(echo -e "open {{ hostvars[item]['destination_ip'] }} \nwait 1\nquit" | telnet)
+    echo "Telnet output for {{ ansible_host }}: $output"
+  register: telnet_output
+  with_items: "{{ test_cases }}"
+  loop: "{{ groups['workers'] }}"
+  when: hostvars[item]['ansible_host'] == ansible_host
+
+

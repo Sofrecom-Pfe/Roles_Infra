@@ -1,0 +1,18 @@
+---
+# tasks file for reports
+- name: Generate report
+  set_fact:
+    report: |
+      Facts for {{ inventory_hostname }}:
+      {% for item in telnet_output.results %}
+        {% if item.changed == True %}
+        Telnet connection status for {{ ansible_host }}: {{ item.stdout }} {% if not loop.last %},{% endif %}
+        {% endif %}
+      {% endfor %}
+
+- name: Write report to file
+  copy:
+    content: "{{ report }}"
+    dest: "/root/ansible/telnet_output.txt"
+    backup: yes
+

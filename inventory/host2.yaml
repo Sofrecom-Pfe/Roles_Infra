@@ -1,0 +1,20 @@
+all:
+  children:
+    workers:
+      hosts:
+        idaas-frontend-int-02:
+          ansible_host: 10.0.0.2
+          destination_ip: github.com 443,facebook.com 443,google.com 80
+          protocole: HTTPS
+        idaas-frontend-int-03:
+          ansible_host: 10.0.0.3
+          destination_ip: google.com 443
+          protocole: HTTPS
+        idaas-frontend-int-04:
+          ansible_host: 10.0.0.4
+          destination_ip: google.com 443,facebook.com 443,google.com 443
+          protocole: HTTPS
+        idaas-frontend-int-05:
+          ansible_host: 10.0.0.5
+          destination_ip: gitlab.com 443
+          protocole: HTTPS

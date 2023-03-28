@@ -1,0 +1,10 @@
+---
+# vars file for send-email
+
+email_host: smtp.gmail.com
+email_port: 587
+email_username: wissem.benhouria@esprit.tn
+#email_password: "{{ vaulted_email_password }}"
+email_recipient: mohamedamine.turki@esprit.tn
+src_copy_file: "/root/Upgrading_to_Gitlab/dynamic_test/reports/telnet_output_idaas-frontend-int-02.txt"
+

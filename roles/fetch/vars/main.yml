@@ -1,0 +1,5 @@
+---
+# vars file for fetch
+worker_file_path: "/root/ansible/telnet_output.txt"
+file_restore_path: "/root/Upgrading_to_Gitlab/dynamic_test/reports/telnet_output_{{ inventory_hostname }}.txt"
+

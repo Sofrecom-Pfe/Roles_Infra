@@ -1,0 +1,16 @@
+- name: Copying the content of the report
+  slurp:
+    src: "{{ src_copy_file }}" 
+  register: file_content
+
+- name: Send email with file content
+  mail:
+    host: "{{ email_host }}"
+    port: "{{ email_port }}"
+    username: "{{ email_username }}"
+    password: "{{ email_password }}"
+    to: "{{ email_recipient }}"
+    subject: "Email subject"
+    body: "{{ file_content.content | b64decode }}"
+  delegate_to: localhost
+
