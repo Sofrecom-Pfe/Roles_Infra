@@ -3,12 +3,12 @@
   hosts: localhost
   tasks:
     - name: Run Python script
-      command: python3 /root/Upgrading_to_Gitlab/dynamic_test/inventory/render_yaml.py
+      command: python3 /home/cloud/Roles_Infra/inventory/render_yaml.py
       register: script_output
 
     - name: Save output to file
       copy:
         content: "{{ script_output.stdout }}"
-        dest: /root/Upgrading_to_Gitlab/dynamic_test/inventory/host2.yaml
+        dest: /home/cloud/Roles_Infra/inventory/host2.yaml
 
 

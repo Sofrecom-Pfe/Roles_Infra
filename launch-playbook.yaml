@@ -6,9 +6,9 @@
     - ansible-vault/email_pass.yml
 
   roles:
-    #- role: prerequis
-    #- role: telnet-test
-    #- role: reports
-    #- role: fetch
+    - role: prerequis
+    - role: telnet-test
+    - role: reports
+    - role: fetch
     #- role: git-push
 

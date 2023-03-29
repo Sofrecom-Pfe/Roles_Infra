@@ -1,7 +1,7 @@
 import json
 
 # Load the JSON file
-with open('/root/Upgrading_to_Gitlab/dynamic_test/json_files/file1.json', 'r') as f:
+with open('/home/cloud/Roles_Infra/json_files/file1.json', 'r') as f:
     data = json.load(f)
 
 # Create a dictionary to store the output

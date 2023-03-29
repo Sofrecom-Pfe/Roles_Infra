@@ -1,9 +1,9 @@
 ---
 # vars file for git-push
 ---
-github_repo: "wissem-shadow/Sofrecom-Pfe/dynamic_test"
-local_file_path: "/root/ansible/json_files/telnet_output_idaas-frontend-int-02.txt"
-destination_path: "/root/Upgrading_to_Gitlab/dynamic_test/reports"
+github_repo: "wissem-shadow/Sofrecom-Pfe/Roles_Infra"
+local_file_path: "/home/cloud/ansible/telnet_output_idaas-frontend-int-02.txt"
+destination_path: "/home/cloud/Roles_Infra/dynamic_test/reports"
 github_pat: "{{ github_token }}"
 git_username: "wissem-shadow"
 git_email: "wissem.benhouria@gmail.com"

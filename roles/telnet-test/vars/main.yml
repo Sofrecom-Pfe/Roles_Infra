@@ -2,8 +2,8 @@
 # vars file for telnet-test
 
 
-src_path: "/root/Upgrading_to_Gitlab/dynamic_test/json_files/file1.json"
-dest_worker_path: "/root/ansible/json_files/file1.json" 
+src_path: "/home/cloud/Roles_Infra/json_files/file1.json"
+dest_worker_path: "/home/cloud/ansible/file1.json" 
 
 
 #file_name : /root/ansible/report_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt

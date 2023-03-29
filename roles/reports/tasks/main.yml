@@ -13,6 +13,6 @@
 - name: Write report to file
   copy:
     content: "{{ report }}"
-    dest: "/root/ansible/telnet_output.txt"
+    dest: "/home/cloud/ansible/telnet_output.txt"
     backup: yes
 
